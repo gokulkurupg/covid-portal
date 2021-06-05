@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CovidCountryWise } from '../common/covid-country-wise.model';
+import { CovidService } from '../service/covid.service';
 
 @Component({
   selector: 'app-countries',
@@ -6,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./countries.component.scss']
 })
 export class CountriesComponent implements OnInit {
+  covidCountryWiseCases: CovidCountryWise[] = [];
 
-  constructor() { }
+  constructor(private covidService: CovidService) { }
 
   ngOnInit(): void {
+    this.getCountryWiseCovidCase();
+  }
+
+  getCountryWiseCovidCase() {
+    this.covidService.getCountryWiseCovidCase()
+      .subscribe((data: CovidCountryWise[]) => this.covidCountryWiseCases = data);
   }
 
 }

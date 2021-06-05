@@ -13,4 +13,36 @@
       </mat-select>
     </mat-form-field>
   </header>
+  <ng-container *ngIf="covidCountryWiseCases.length">
+    <div *ngFor="let countryWiseCases of covidCountryWiseCases">
+      <div>
+        <div>
+          <img [src]="countryWiseCases.countryInfo?.flag" />
+          <h3>{{countryWiseCases.country}}</h3>
+        </div>
+        <div>
+          <div>
+            <span>Cases</span>
+            <span>{{countryWiseCases.cases}}</span>
+          </div>
+          <div>
+            <span>Deaths</span>
+            <span>{{countryWiseCases.deaths}}</span>
+          </div>
+          <div>
+            <span>Recovered</span>
+            <span>{{countryWiseCases.recovered}}</span>
+          </div>
+          <div>
+            <span>Tests</span>
+            <span>{{countryWiseCases.tests}}</span>
+          </div>
+          <div>
+            <span>Population</span>
+            <span>{{countryWiseCases.population}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
   
