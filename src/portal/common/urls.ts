@@ -1,0 +1,1 @@
+export const covidSummaryUrl = "https://corona.lmao.ninja/v2/all";

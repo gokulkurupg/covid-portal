@@ -1,1 +1,38 @@
-<p>dashboard works!</p>
+<div class="dashboard-wrapper">
+    <div class="title-wrapper">
+        <h1>Total</h1>
+        <mat-divider></mat-divider>
+    </div>
+    <div *ngIf="covidSummary" class="summary-wrapper">
+        <div>
+            <h2>Total Cases</h2>
+            <h1>{{ covidSummary.cases }}</h1>
+        </div>
+        <div>
+            <h2>Total Deaths</h2>
+            <h1>{{ covidSummary.deaths }}</h1>
+        </div>
+        <div>
+            <h2>Total Recovered</h2>
+            <h1>{{ covidSummary.recovered }}</h1>
+        </div>
+    </div>
+    <div class="title-wrapper">
+        <h1>Today</h1>
+        <mat-divider></mat-divider>
+    </div>
+    <div *ngIf="covidSummary" class="summary-wrapper">
+        <div>
+            <h2>Cases</h2>
+            <h1>{{ covidSummary.cases }}</h1>
+        </div>
+        <div>
+            <h2>Deaths</h2>
+            <h1>{{ covidSummary.deaths }}</h1>
+        </div>
+        <div>
+            <h2>Recovered</h2>
+            <h1>{{ covidSummary.recovered }}</h1>
+        </div>
+    </div>
+</div>

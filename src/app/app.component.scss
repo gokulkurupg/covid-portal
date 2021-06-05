@@ -7,7 +7,7 @@
     background: blue;
     border-top-right-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
-    padding: 1rem;
+    padding: 1rem 0.9rem;
 }
 .vertical-wrapper {
     display: flex;
@@ -17,11 +17,16 @@
         font-size: 40px;
         cursor: pointer;
     }
+    a {
+        color: white;
+    }
 }
 .nav-icons {
     height: 95%;
-    padding: 1rem 0;
 }
 .icon-margin {
     margin-top: 2rem;
+}
+.current-link {
+    border-left: 0.5rem solid cyan;
 }

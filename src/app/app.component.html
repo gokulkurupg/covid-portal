@@ -2,8 +2,12 @@
     <mat-sidenav class="app-sidenav" mode="side" opened *ngIf="isLoggedIn | async">
         <div class="nav-icons vertical-wrapper">
             <div class="vertical-wrapper">
-                <mat-icon>dashboard</mat-icon>
-                <mat-icon class="icon-margin">emoji_flags</mat-icon>
+                <a routerLink="/portal/dashboard" routerLinkActive="current-link">
+                    <mat-icon>dashboard</mat-icon>
+                </a>
+                <a routerLink="/portal/countries" routerLinkActive="current-link" class="icon-margin">
+                    <mat-icon>emoji_flags</mat-icon>
+                </a>
             </div>
             <mat-icon (click)="logout()">power_settings_new</mat-icon>
         </div>
