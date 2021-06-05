@@ -1,0 +1,26 @@
+.login-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  flex-wrap: wrap;
+}
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+.login-btn {
+  margin-top: 2rem;
+  border-radius: 1rem;
+}
+.covid-label {
+  font-size: 4rem;
+  font-weight: 100;
+}
+.login-card {
+  padding: 2rem;
+}
+.login-field {
+  margin-top: 2rem;
+  min-width: 15rem;
+}

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './service/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'covid-portal';
+  isLoggedIn = this.authService.getLoggedInStatus();
+  constructor(private authService: AuthService) {}
 }
