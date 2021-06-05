@@ -1,3 +1,27 @@
-.app-sidenav {
+.app-sidenav-container {
     height: 100%;
+}
+.app-sidenav {
+    width: 5rem;
+    color: white;
+    background: blue;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    padding: 1rem;
+}
+.vertical-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    mat-icon {
+        font-size: 40px;
+        cursor: pointer;
+    }
+}
+.nav-icons {
+    height: 95%;
+    padding: 1rem 0;
+}
+.icon-margin {
+    margin-top: 2rem;
 }

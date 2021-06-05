@@ -9,4 +9,7 @@ import { AuthService } from './service/auth.service';
 export class AppComponent {
   isLoggedIn = this.authService.getLoggedInStatus();
   constructor(private authService: AuthService) {}
+  logout() {
+    this.authService.onLogout();
+  }
 }

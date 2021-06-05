@@ -22,4 +22,9 @@ export class AuthService {
   getLoggedInStatus(): Observable<boolean> {
     return this.isLoggedIn.asObservable();
   }
+
+  onLogout() {
+    this.isLoggedIn.next(false);
+    this.router.navigate(['/login']);
+  }
 }
