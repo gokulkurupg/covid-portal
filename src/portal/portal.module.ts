@@ -10,6 +10,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatCardModule } from '@angular/material/card';
 
 import { PortalRoutingModule } from './portal-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -17,9 +18,15 @@ import { CountriesComponent } from './countries/countries.component';
 import { CovidService } from './service/covid.service';
 import { ServiceInterceptor } from './interceptor/service.interceptor';
 import { SpinnerComponent } from './common/spinner.component';
+import { EditDetailsComponent } from './edit-details/edit-details.component';
 
 @NgModule({
-  declarations: [DashboardComponent, CountriesComponent, SpinnerComponent],
+  declarations: [
+    DashboardComponent,
+    CountriesComponent,
+    SpinnerComponent,
+    EditDetailsComponent,
+  ],
   imports: [
     CommonModule,
     MatInputModule,
@@ -33,11 +40,12 @@ import { SpinnerComponent } from './common/spinner.component';
     ReactiveFormsModule,
     MatProgressSpinnerModule,
     MatDialogModule,
+    MatCardModule,
   ],
   providers: [
     CovidService,
     { provide: HTTP_INTERCEPTORS, useClass: ServiceInterceptor, multi: true },
   ],
-  entryComponents: [SpinnerComponent]
+  entryComponents: [SpinnerComponent],
 })
 export class PortalModule {}

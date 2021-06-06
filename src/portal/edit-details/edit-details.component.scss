@@ -1,0 +1,39 @@
+.edit-details-wrapper {
+  margin: 2rem;
+}
+.title-wrapper {
+  display: flex;
+  align-items: center;
+  h1 {
+    font-size: 2.5rem;
+    opacity: 0.5;
+    font-weight: 100;
+    white-space: nowrap;
+  }
+  mat-divider {
+    width: 100%;
+    margin-left: 1rem;
+  }
+}
+.edit-details {
+  max-width: 70%;
+}
+.edit-details-card {
+  margin: 4rem 0;
+}
+.field-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  mat-form-field {
+    margin: 0.5rem;
+    flex: 1;
+  }
+}
+.btn-wrapper {
+  text-align: end;
+  button {
+    margin-left: 1rem;
+    border-radius: 1rem;
+  }
+}

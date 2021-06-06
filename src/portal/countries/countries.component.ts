@@ -20,6 +20,9 @@ export class CountriesComponent implements OnInit {
   search = new FormControl('');
   sortBy = new FormControl('');
   pageSize = 30;
+  isEdit = false;
+  editCountryId!: number;
+  editCountryName!: string;
 
   constructor(private covidService: CovidService) {}
 
@@ -80,5 +83,15 @@ export class CountriesComponent implements OnInit {
     let startIndex = event.pageIndex * event.pageSize;
     let endIndex = startIndex + event.pageSize;
     this.filteredCountryList = this.covidCountryWiseCases.slice(startIndex, endIndex);
+  }
+
+  onEdit(id: number, country: string) {
+    this.isEdit = true;
+    this.editCountryId = id;
+    this.editCountryName = country;
+  }
+
+  handleCancel() {
+    this.isEdit = false;
   }
 }

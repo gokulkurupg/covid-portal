@@ -1,4 +1,4 @@
-<div class="countries-wrapper">
+<div class="countries-wrapper" *ngIf="!isEdit">
   <header>
     <h1>Countries</h1>
     <mat-form-field appearance="outline">
@@ -31,31 +31,45 @@
         <div class="card-details-wrap">
           <div>
             <h4>Cases</h4>
-            <span>{{ countryWiseCases.cases }}</span>
+            <span>{{ countryWiseCases.cases | number }}</span>
           </div>
           <div>
             <h4>Deaths</h4>
-            <span>{{ countryWiseCases.deaths }}</span>
+            <span>{{ countryWiseCases.deaths | number }}</span>
           </div>
           <div>
             <h4>Recovered</h4>
-            <span>{{ countryWiseCases.recovered }}</span>
+            <span>{{ countryWiseCases.recovered | number }}</span>
           </div>
         </div>
         <div class="card-details-wrap">
           <div>
             <h4>Tests</h4>
-            <span>{{ countryWiseCases.tests }}</span>
+            <span>{{ countryWiseCases.tests | number }}</span>
           </div>
           <div>
             <h4>Population</h4>
-            <span>{{ countryWiseCases.population }}</span>
+            <span>{{ countryWiseCases.population | number }}</span>
           </div>
           <button mat-mini-fab color="white">
-            <mat-icon>edit</mat-icon>
+            <mat-icon
+              (click)="
+                onEdit(
+                  countryWiseCases.countryInfo._id,
+                  countryWiseCases.country
+                )
+              "
+              >edit</mat-icon
+            >
           </button>
         </div>
       </div>
     </div>
   </div>
 </div>
+<app-edit-details
+  *ngIf="isEdit"
+  [id]="editCountryId"
+  [country]="editCountryName"
+  (onCancel)="handleCancel()"
+></app-edit-details>

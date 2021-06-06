@@ -6,15 +6,15 @@
     <div *ngIf="covidSummary" class="summary-wrapper">
         <div>
             <h2>Total Cases</h2>
-            <h1>{{ covidSummary.cases }}</h1>
+            <h1>{{ covidSummary.cases | number }}</h1>
         </div>
         <div>
             <h2>Total Deaths</h2>
-            <h1>{{ covidSummary.deaths }}</h1>
+            <h1>{{ covidSummary.deaths | number }}</h1>
         </div>
         <div>
             <h2>Total Recovered</h2>
-            <h1>{{ covidSummary.recovered }}</h1>
+            <h1>{{ covidSummary.recovered | number }}</h1>
         </div>
     </div>
     <div class="title-wrapper">
@@ -24,15 +24,15 @@
     <div *ngIf="covidSummary" class="summary-wrapper">
         <div>
             <h2>Cases</h2>
-            <h1>{{ covidSummary.cases }}</h1>
+            <h1>{{ covidSummary.cases | number }}</h1>
         </div>
         <div>
             <h2>Deaths</h2>
-            <h1>{{ covidSummary.deaths }}</h1>
+            <h1>{{ covidSummary.deaths | number }}</h1>
         </div>
         <div>
             <h2>Recovered</h2>
-            <h1>{{ covidSummary.recovered }}</h1>
+            <h1>{{ covidSummary.recovered | number }}</h1>
         </div>
     </div>
 </div>
