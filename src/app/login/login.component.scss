@@ -24,3 +24,28 @@
   margin-top: 2rem;
   min-width: 15rem;
 }
+.circle-large {
+  border-radius: 50%;
+  background-image: linear-gradient(#00ff89, #1b1be6);
+  height: 20rem;
+  width: 20rem;
+  position: fixed;
+  top: -55px;
+  left: -80px;
+}
+.circle-small {
+  border-radius: 50%;
+  background-image: linear-gradient(#00ff89, #1b1be6);
+  height: 10rem;
+  width: 10rem;
+  position: fixed;
+  top: 200px;
+  left: -80px;
+}
+
+@media screen and (max-width: 950px), screen and (max-height: 580px) {
+  .circle-large,
+  .circle-small {
+    display: none;
+  }
+}

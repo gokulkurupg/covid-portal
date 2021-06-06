@@ -9,26 +9,40 @@
         <mat-form-field>
           <mat-label>Cases</mat-label>
           <input matInput formControlName="cases" />
+          <mat-error *ngIf="editForm.controls.cases.invalid">{{
+            getError("cases")
+          }}</mat-error>
         </mat-form-field>
         <mat-form-field>
           <mat-label>Deaths</mat-label>
           <input matInput formControlName="deaths" />
+          <mat-error *ngIf="editForm.controls.deaths.invalid">{{
+            getError("deaths")
+          }}</mat-error>
         </mat-form-field>
       </div>
       <div class="field-wrapper">
         <mat-form-field>
           <mat-label>Recovered</mat-label>
           <input matInput formControlName="recovered" />
+          <mat-error *ngIf="editForm.controls.recovered.invalid">{{
+            getError("recovered")
+          }}</mat-error>
         </mat-form-field>
         <mat-form-field>
           <mat-label>Tests</mat-label>
           <input matInput formControlName="tests" />
+          <mat-error *ngIf="editForm.controls.tests.invalid">{{
+            getError("tests")
+          }}</mat-error>
         </mat-form-field>
       </div>
     </mat-card>
     <div class="btn-wrapper">
       <button mat-raised-button (click)="handleCancel()">Cancel</button>
-      <button mat-raised-button color="primary" [disabled]="editForm.invalid">Save</button>
+      <button mat-raised-button color="primary" [disabled]="editForm.invalid" (click)="handleSave()">
+        Save
+      </button>
     </div>
   </div>
 </div>

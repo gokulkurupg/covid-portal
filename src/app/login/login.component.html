@@ -1,3 +1,5 @@
+<div class="circle-large"></div>
+<div class="circle-small"></div>
 <div class="login-wrapper">
   <div class="login-child covid-label">COVID - 19</div>
   <div>
@@ -6,27 +8,27 @@
         <mat-form-field class="login-field">
           <mat-label>Username</mat-label>
           <input matInput formControlName="username" />
+          <mat-error
+            *ngIf="
+              loginForm.controls.username.touched &&
+              loginForm.controls.username.hasError('required')
+            "
+          >
+            Please enter Username
+          </mat-error>
         </mat-form-field>
-        <mat-error
-          *ngIf="
-            loginForm.controls.username.touched &&
-            loginForm.controls.username.hasError('required')
-          "
-        >
-          Please enter Username
-        </mat-error>
         <mat-form-field class="login-field">
           <mat-label>Password</mat-label>
           <input matInput type="password" formControlName="password" />
+          <mat-error
+            *ngIf="
+              loginForm.controls.password.touched &&
+              loginForm.controls.password.hasError('required')
+            "
+          >
+            Please enter password
+          </mat-error>
         </mat-form-field>
-        <mat-error
-          *ngIf="
-            loginForm.controls.password.touched &&
-            loginForm.controls.password.hasError('required')
-          "
-        >
-          Please enter password
-        </mat-error>
         <button
           [disabled]="!loginForm.valid"
           mat-raised-button

@@ -94,4 +94,15 @@ export class CountriesComponent implements OnInit {
   handleCancel() {
     this.isEdit = false;
   }
+
+  handleSave(event: any) {
+    this.isEdit = false;
+    const updatedCountryList = this.filteredCountryList.map(country => {
+      if(country.countryInfo._id === event.id) {
+        return {...country, cases: event.cases, deaths: event.deaths, recovered: event.recovered, tests: event.tests }
+      }
+      return country;
+    });
+    this.filteredCountryList = [...updatedCountryList];
+  }
 }
