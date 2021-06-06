@@ -1,48 +1,61 @@
-<header>
+<div class="countries-wrapper">
+  <header>
     <h1>Countries</h1>
     <mat-form-field appearance="outline">
       <mat-icon matPrefix>search</mat-icon>
       <mat-label>Search Country</mat-label>
-      <input matInput/>
+      <input matInput [formControl]="search" />
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Sort By</mat-label>
-      <mat-select>
-        <mat-option>One</mat-option>
-        <mat-option>Two</mat-option>
+      <mat-select [formControl]="sortBy">
+        <mat-option *ngFor="let option of sortByOptions" [value]="option.id">{{
+          option.value
+        }}</mat-option>
       </mat-select>
     </mat-form-field>
+    <mat-paginator
+      [length]="covidCountryWiseCases.length"
+      [pageSize]="pageSize"
+      [hidePageSize]="true"
+      (page)="onPageChange($event)"
+    ></mat-paginator>
   </header>
-  <ng-container *ngIf="covidCountryWiseCases.length">
-    <div *ngFor="let countryWiseCases of covidCountryWiseCases">
-      <div>
-        <div>
+  <div *ngIf="filteredCountryList.length" class="country-list-wrapper">
+    <div *ngFor="let countryWiseCases of filteredCountryList">
+      <div class="country-card">
+        <div class="card-title">
           <img [src]="countryWiseCases.countryInfo?.flag" />
-          <h3>{{countryWiseCases.country}}</h3>
+          <h1>{{ countryWiseCases.country }}</h1>
         </div>
-        <div>
+        <div class="card-details-wrap">
           <div>
-            <span>Cases</span>
-            <span>{{countryWiseCases.cases}}</span>
+            <h4>Cases</h4>
+            <span>{{ countryWiseCases.cases }}</span>
           </div>
           <div>
-            <span>Deaths</span>
-            <span>{{countryWiseCases.deaths}}</span>
+            <h4>Deaths</h4>
+            <span>{{ countryWiseCases.deaths }}</span>
           </div>
           <div>
-            <span>Recovered</span>
-            <span>{{countryWiseCases.recovered}}</span>
+            <h4>Recovered</h4>
+            <span>{{ countryWiseCases.recovered }}</span>
+          </div>
+        </div>
+        <div class="card-details-wrap">
+          <div>
+            <h4>Tests</h4>
+            <span>{{ countryWiseCases.tests }}</span>
           </div>
           <div>
-            <span>Tests</span>
-            <span>{{countryWiseCases.tests}}</span>
+            <h4>Population</h4>
+            <span>{{ countryWiseCases.population }}</span>
           </div>
-          <div>
-            <span>Population</span>
-            <span>{{countryWiseCases.population}}</span>
-          </div>
+          <button mat-mini-fab color="white">
+            <mat-icon>edit</mat-icon>
+          </button>
         </div>
       </div>
     </div>
-  </ng-container>
-  
+  </div>
+</div>
