@@ -6,16 +6,20 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { PortalRoutingModule } from './portal-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CountriesComponent } from './countries/countries.component';
 import { CovidService } from './service/covid.service';
+import { ServiceInterceptor } from './interceptor/service.interceptor';
+import { SpinnerComponent } from './common/spinner.component';
 
 @NgModule({
-  declarations: [DashboardComponent, CountriesComponent],
+  declarations: [DashboardComponent, CountriesComponent, SpinnerComponent],
   imports: [
     CommonModule,
     MatInputModule,
@@ -27,7 +31,13 @@ import { CovidService } from './service/covid.service';
     PortalRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    MatProgressSpinnerModule,
+    MatDialogModule,
   ],
-  providers: [CovidService],
+  providers: [
+    CovidService,
+    { provide: HTTP_INTERCEPTORS, useClass: ServiceInterceptor, multi: true },
+  ],
+  entryComponents: [SpinnerComponent]
 })
 export class PortalModule {}
