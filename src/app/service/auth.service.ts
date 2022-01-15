@@ -11,7 +11,7 @@ export class AuthService {
   constructor(private toastr: ToastrService, private router: Router) {}
 
   onLogin(username: string, password: string) {
-    if (username === 'fingent' && password === 'fingent') {
+    if (username === 'gokul' && password === 'gokul') {
       this.isLoggedIn.next(true);
       this.router.navigate(['/portal']);
       return;
